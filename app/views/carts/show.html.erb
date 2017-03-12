@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<%@cart.items.each do |cart|%>
+    <%=cart.product.name%>
+    <%=cart.product.price%>
+    <%=cart.cart_id%>
+    <br>
+    <%end%>
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @carts.each do |cart| %>
+      <% i=0 %>
+  <%cart.items.each do |item|%>
+
+          <% i=i+1 %>
+          <%=i%>
+
+          <%=item.product.name%>&nbsp
+          <%=Product.find(item.product_id).name%> &nbsp &nbsp
+      <%=item.product.price%> &nbsp &nbsp
+          <%=item.cart_id%>&nbsp &nbsp&nbsp &nbsp  <%=session[:cart_id]%>
+
+
+
+        <%= link_to 'Show', cart %>
+        <%= link_to 'Edit', edit_cart_path(cart) %>
+      <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <br>
+    <% end %>
+  <%end%>
+
+  </tbody>
+</table>
+
+<br>
+<% i=0 %>
+<% i=i+1 %>
+<%=i%>
+
+<%= link_to 'New Cart', new_cart_path %>
+<%= link_to'addto cart',products_path %>
+<%#=session[:cart_id]%>
