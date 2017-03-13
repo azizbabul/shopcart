@@ -27,8 +27,8 @@ class ItemsController < ApplicationController
    # @cart =Cart.new
     @cart= current_cart
     @product = Product.find(params[:product_id])
-    @item = @cart.items.build(:product_id=> @product.id)
-
+   # @item = @cart.items.build(:product_id=> @product.id)
+    @item = @cart.addProduct(@product.id)
     respond_to do |format|
       if @item.save
         format.html { redirect_to @cart, notice: 'Item was successfully created.' }

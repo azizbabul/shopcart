@@ -1,13 +1,21 @@
+<style type="text/css">
+  body { background: lightgray !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
+<div class="container">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders to a table:</p>
+  <table class="table table-bordered",>
 
-<table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th colspan="3"></th>
+      <th >product id </th>
+      <th >links</th>
     </tr>
   </thead>
 
@@ -18,14 +26,15 @@
         <td><%= product.price %></td>
         <td><%= product.id %></td>
 
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       <td> <%= button_to 'add to cart', items_path(:product_id=> product.id) %></td>
+        <td><%= link_to 'Show', product %>
+        <%= link_to 'Edit', edit_product_path(product) %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to 'add to cart', items_path(:product_id=> product.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
